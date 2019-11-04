@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+League.create(name: "Paris Roller Girls", country: "France", city: "Paris")
+Team.create([{name: "All stars", league_id: 1}, {name: "Les Quedalles", league_id: 1}, {name: "Les sans culottes", league_id: 1}])
