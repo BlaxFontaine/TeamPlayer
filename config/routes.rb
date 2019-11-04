@@ -5,4 +5,8 @@ Rails.application.routes.draw do
     resources :teams
   end
   resources :players
+
+  namespace :admin do
+    resources :leagues, only: [:index]
+  end
 end
