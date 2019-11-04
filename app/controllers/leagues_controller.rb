@@ -1,5 +1,5 @@
 class LeaguesController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_league, only: [:show, :edit, :update, :destroy]
 
   def index
     @leagues = League.all
@@ -24,6 +24,7 @@ class LeaguesController < ApplicationController
   end
 
   private
+
   def set_league
     @league = League.find(params[:id])
   end
