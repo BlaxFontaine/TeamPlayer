@@ -1,8 +1,10 @@
 <h1><%= @league.name %></h1>
 <ul>
   <% @league.teams.each do |team| %>
-  <li><%= team.name %><%= link_to 'Edit team', edit_league_team_path(@league, team), class: "btn btn-secondary" %>
-</li>
+  <li>
+    <%= team.id %>
+    <%= link_to team.name, team_path(team) %>
+  </li>
   <% end %>
 </ul>
 <%= link_to 'Add team', new_league_team_path(@league), class: "btn btn-primary" %>
