@@ -34,6 +34,18 @@ class TeamsController < ApplicationController
   end
 
   def update
+    @league = League.find(@team.league.id)
+    if @team.update(team_params)
+      respond_to do |format|
+        format.html { redirect_to league_path(@league) }
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html { render 'leagues/show' }
+        format.js
+      end
+    end
   end
 
   def destroy
