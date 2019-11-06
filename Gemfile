@@ -8,6 +8,7 @@ gem 'puma'
 gem 'rails', '6.0.0'
 gem 'redis'
 gem 'devise'
+gem 'country_select'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

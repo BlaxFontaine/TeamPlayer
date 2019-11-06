@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  devise_for :leagues
+
+  get "league_root" => "league#show"
+  devise_scope :league do
+    root to: 'devise/sessions#new'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :leagues do
     resources :teams, only: [:index, :new, :create]
