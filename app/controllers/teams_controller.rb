@@ -47,7 +47,7 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    @league = League.find(@team.league.id)
+    # @league = League.find(@team.league.id)
     @team.destroy
     redirect_to league_path(@league)
   end
