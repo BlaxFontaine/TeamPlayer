@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :leagues
 
-  get "league_root" => "league#show"
+  get "league_root" => "leagues#show"
   devise_scope :league do
     root to: 'devise/sessions#new'
   end
