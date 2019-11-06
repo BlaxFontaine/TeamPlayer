@@ -1,21 +1,19 @@
 class TeamsController < ApplicationController
+  before_action :set_league
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def index
-    @teams = Team.all
   end
 
   def show
   end
 
   def new
-    @league = League.find(params[:league_id])
-    @team = Team.new
+    @team = @league.teams.build
   end
 
   def create
     @team = Team.new(team_params)
-    @league = League.find(params[:league_id])
     @team.league = @league
     if @team.save
       respond_to do |format|
@@ -56,8 +54,12 @@ class TeamsController < ApplicationController
 
   private
 
+  def set_league
+    @league = League.find(params[:league_id])
+  end
+
   def set_team
-    @team = Team.find(params[:id])
+    @team = @league.teams.find(params[:id])
   end
 
   def team_params
