@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :leagues, except: [:index] do
     resources :teams
-    resources :players
   end
+    resources :players
 
   namespace :admin do
     resources :leagues, only: [:index]
