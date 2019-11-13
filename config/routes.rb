@@ -6,11 +6,10 @@ Rails.application.routes.draw do
     root to: 'devise/sessions#new'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :leagues do
-    resources :teams, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :leagues, except: [:index] do
+    resources :teams
+    resources :players
   end
-  resources :players
-  resources :teams, only: [:show]
 
   namespace :admin do
     resources :leagues, only: [:index]

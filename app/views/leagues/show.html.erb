@@ -2,7 +2,6 @@
 <ul>
   <% @league.teams.each do |team| %>
   <li>
-    <%= team.id %>
     <%= link_to team.name, league_team_path(@league.id, team.id) %>
   </li>
   <% end %>
