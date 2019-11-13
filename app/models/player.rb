@@ -1,4 +1,4 @@
 class Player < ApplicationRecord
-  belongs_to :team
+  belongs_to :league
   validates :derby_name, presence: true
 end
