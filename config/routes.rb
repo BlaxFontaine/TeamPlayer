@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :leagues, except: [:index] do
     resources :teams
   end
+  resources :teams do
     resources :players
+  end
 
   namespace :admin do
     resources :leagues, only: [:index]
