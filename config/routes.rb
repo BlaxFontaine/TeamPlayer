@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :leagues
 
-  get "league_root" => "leagues#show"
+  get "league_root" => "dashboards#show"
   devise_scope :league do
     root to: 'devise/sessions#new'
   end
@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :leagues, only: [:index]
   end
+
+  get '/dashboard', to: 'dashboards#show'
 end
