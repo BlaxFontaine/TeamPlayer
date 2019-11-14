@@ -1,3 +1,12 @@
+<h1>Your teams</h1>
+
 <% @teams.each do |team| %>
   <p><%= team.name %></p>
+<% end %>
+
+<h1>Your players</h1>
+<% @teams.each do |team| %>
+  <% team.players.each do |player| %>
+    <p><%= player.derby_name%> || <%= player.number %></p>
+  <% end %>
 <% end %>
