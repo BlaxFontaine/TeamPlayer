@@ -4,7 +4,7 @@ class League < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :teams, dependent: :destroy
-  has_many :players, through: :team
+  has_many :players, dependent: :destroy
   validates :name, uniqueness: true, presence: true
   validates :country, presence: true
   validates :city, presence: true

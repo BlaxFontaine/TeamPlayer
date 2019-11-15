@@ -1,15 +1,6 @@
-<h2><%= @team.name %></h2> <%= link_to 'Add player', new_team_player_path(@team) %>
-<ul>
-  <% @team.players do |player| %>
-  <li>
-    <%= player.derby_name '||'%>
-    <%= player.number '||' %>
-    <%= player.role %>
-  </li>
-  <% end %>
-</ul>
-<%= link_to 'Edit team', edit_league_team_path(@team.league_id, @team.id), class: "btn btn-secondary" %> <br>
-<%= link_to "Delete", league_team_path(@team.league, @player.team_id),
+<h2><%= @team.name %></h2>
+<%= link_to 'Edit team', edit_league_team_path(@league.id, @team.id), class: "btn btn-secondary" %>
+<%= link_to "Delete", league_team_path(@team.league_id),
   method: :delete,
-  data: { confirm: "Are you sure?" } %> <br>
-<%= link_to 'Back to league', league_path(@team.league_id) %>
+  data: { confirm: "Are you sure?" } %>
+<%= link_to 'Back to league', league_path(@league.id) %>
