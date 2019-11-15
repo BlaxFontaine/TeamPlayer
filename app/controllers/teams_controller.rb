@@ -1,4 +1,4 @@
-class TeamsController < ApplicationController
+class Dashboard::TeamsController < ApplicationController
   before_action :set_league
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
@@ -17,12 +17,12 @@ class TeamsController < ApplicationController
     @team.league = @league
     if @team.save
       respond_to do |format|
-        format.html { redirect_to league_path(@league) }
+        format.html { redirect_to dashboard_path }
         format.js
       end
     else
       respond_to do |format|
-        format.html { render 'leagues/show' }
+        format.html { render 'dashboard/show' }
         format.js
       end
     end
@@ -55,7 +55,7 @@ class TeamsController < ApplicationController
   private
 
   def set_league
-    @league = League.find(params[:league_id])
+    @league = League.find(current_league.id)
   end
 
   def set_team
