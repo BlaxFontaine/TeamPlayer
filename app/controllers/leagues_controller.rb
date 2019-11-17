@@ -26,6 +26,6 @@ class LeaguesController < ApplicationController
   private
 
   def set_league
-    @league = League.find(params[:id])
+    @league = League.find(current_league.id)
   end
 end

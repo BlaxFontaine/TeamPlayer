@@ -1,6 +1,6 @@
 <h2><%= @team.name %></h2>
-<%= link_to 'Edit team', edit_league_team_path(@league.id, @team.id), class: "btn btn-secondary" %>
-<%= link_to "Delete", league_team_path(@team.league_id),
+<%= link_to 'Edit team', edit_team_path(@team.id), class: "btn btn-secondary" %>
+<%= link_to "Delete", team_path(@team),
   method: :delete,
   data: { confirm: "Are you sure?" } %>
-<%= link_to 'Back to league', league_path(@league.id) %>
+<%= link_to 'Back to league', root_path %>
