@@ -1,7 +1,24 @@
 <h1><%= @league.name %></h1>
 
+<h3>Teams</h3>
 <% @league.teams.each do |team| %>
-  <p><%= link_to team.name, team_path(team) %></p>
+  <p><%= link_to team.name, team_path(team) %> <%= link_to 'Edit', edit_team_path(team.id) %>
+  <%= link_to "Delete", team_path(team),
+  method: :delete,
+  data: { confirm: "Are you sure?" } %></p>
 <% end %>
 
 <%= link_to 'Add team', new_team_path, class: "btn btn-primary" %>
+
+<h3>Players</h3>
+<% @league.players.each do |player| %>
+  <p>
+    <%= player.derby_name %> - <%= player.number %> - <%= player.role %> ||
+    <%= link_to 'Edit', edit_player_path(player.id) %>
+    <%= link_to "Delete", player_path(player),
+    method: :delete,
+    data: { confirm: "Are you sure?" } %>
+  </p>
+<% end %>
+
+<%= link_to 'Add player', new_player_path, class: "btn btn-primary" %>
