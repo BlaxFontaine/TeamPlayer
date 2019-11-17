@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   root to: 'leagues#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-    resources :teams
-    resources :players
-
+  resources :teams
+  resources :players
 
   get 'dashboard', to: 'leagues#show'
 
